@@ -5,12 +5,16 @@ import login from 'components/login';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',//地址栏的#号
   routes: [
     {
       path: '/',
       redirect: login
     },
+    // {
+    //   path: '*',
+    //   component: require('components/404')
+    // },
     {
       path: '/login',
       name: 'login',
