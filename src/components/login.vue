@@ -2,7 +2,7 @@
   <div>
     <el-row class="logo">
       <el-col :span="18">
-        <img src="../assets/logo-default.png" alt="">
+        <img src="../assets/logo-default.png" alt="" style="height: 70px;">
       </el-col>
       <el-col :span="6"></el-col>
     </el-row>
@@ -77,7 +77,7 @@
             mainService.userLogin(param, (res) => {
               console.log(res);
               if (res.data.success) {
-                this.$router.push('web1');
+                this.$router.push('evidencia');
               } else {
                 // this.dialogVisible = true;
                 // this.loginMsg = res.data.msg;
@@ -103,13 +103,6 @@
     background-color: rgba(56, 116, 87, 1);
     border-color: rgba(56, 116, 87, 1);
     margin-top: 10px;
-  }
-  
-  .logo {
-    height: 80px;
-    vertical-align: middle;
-    padding-top: 20px;
-    padding-left: 15px;
   }
   
   .banner {
