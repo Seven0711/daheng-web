@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>content</h1>
+    <h1>{{hehe}}</h1>
   </div>
 </template>
 <script>
@@ -8,7 +8,13 @@
     name: 'nav',
     data() {
       return {
+        hehe: 'nav'
       }
     }
   }
+
 </script>
+<style>
+
+
+</style>

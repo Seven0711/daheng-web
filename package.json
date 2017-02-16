@@ -9,11 +9,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.15.3",
-=======
     "element-ui": "^1.1.6",
->>>>>>> be96651f3c2a4a2ca57d99373139751a48a2be66
     "vue": "^2.1.10",
     "vue-router": "^2.2.0"
   },

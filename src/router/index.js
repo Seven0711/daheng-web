@@ -22,9 +22,9 @@ export default new Router({
       component: require('components/main'),
       children: [
         {
-          path: '/web1',
-          name: 'web1',
-          component: require('components/web1')
+          path: '/evidencia',
+          name: 'evidencia',
+          component: require('components/evidencia')
         },
         {
           path: '/web2',
