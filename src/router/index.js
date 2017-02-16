@@ -1,31 +1,41 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Hello from 'components/Hello';
-
+import main from 'components/main';
+import login from 'components/login';
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   routes: [
     {
-      path:'/',
-      redirect:Hello
+      path: '/',
+      redirect: login
     },
     {
-      path: '/hello',
-      name: 'hello',
-      component: Hello
+      path: '/login',
+      name: 'login',
+      component: login
     },
     {
-      path: '/eve',
-      name: 'eve',
-      component: require('components/Eve'),
+      path: '/main',
+      name: 'main',
+      component: require('components/main'),
       children: [
         {
-          path: '/word',
-          name: 'word',
-          component: require('components/Word')
-        } 
+          path: '/web1',
+          name: 'web1',
+          component: require('components/web1')
+        },
+        {
+          path: '/web2',
+          name: 'web2',
+          component: require('components/web2')
+        },
+        {
+          path: '/web3',
+          name: 'web3',
+          component: require('components/web3')
+        }
       ]
     }
   ]
