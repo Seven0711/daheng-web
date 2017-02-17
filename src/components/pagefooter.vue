@@ -13,9 +13,10 @@
 
 <style scoped>
     div{
-        position:absolute;
-        bottom:0;
+        /*position:absolute;
+        bottom:0;*/
         width:100%;
+        line-height:60px;
         color:#fff;
         background:rgba(56, 116, 87, 1);
     }

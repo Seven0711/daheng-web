@@ -1,10 +1,10 @@
 <template>
   <div id="main">
     <pageHead :username="username"></pageHead>
-    <el-menu theme="default" :default-active="defaultActive" class="el-menu-demo" mode="horizontal" :router="true" @select="handleSelect">
+    <el-menu theme="default" :default-active="defaultActive" mode="horizontal" :router="true" @select="handleSelect">
       <el-menu-item index="evidencia">证据管理</el-menu-item>
-      <el-menu-item index="web2">我的工作台</el-menu-item>
-      <el-menu-item index="web3">订单管理</el-menu-item>
+      <!--<el-menu-item index="web2">我的工作台</el-menu-item>
+      <el-menu-item index="web3">订单管理</el-menu-item>-->
     </el-menu>
     <router-view></router-view>
     <pagefooter></pagefooter>
