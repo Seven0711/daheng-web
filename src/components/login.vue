@@ -75,7 +75,6 @@
             param.username = this.ruleForm.username;
             param.password = this.ruleForm.password;
             mainService.userLogin(param, (res) => {
-              console.log(res);
               if (res.data.success) {
                 this.$router.push('evidencia');
               } else {
