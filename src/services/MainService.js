@@ -14,8 +14,8 @@ export default class MainService {
     dhAjax.dhGet('webapi/account/logout', param, callback);
   }
   // 获取证据列表
-  getActions (param, callback) {
-    dhAjax.dhGet('webapi/enforceActions', param, callback);
+  getActions (pager,param, callback) {
+    dhAjax.dhGet(`webapi/reinforce/list?pager.page=${pager.page}&pager.size=${pager.pageSize}&pager.sort=${pager.sort}`, param, callback);
   }
   // 获取用户信息
   getUserInfo (param, callback) {

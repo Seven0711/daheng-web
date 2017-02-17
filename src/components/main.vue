@@ -10,7 +10,6 @@
     <pagefooter></pagefooter>
   </div>
 </template>
-
 <script>
   import pageHead from 'components/pagehead'
   import pagefooter from 'components/pagefooter'
@@ -34,7 +33,9 @@
         console.log(key, keyPath);
       },
       getUserInfo() {
-        mainService.getUserInfo({ temp: Math.random() }, (res) => {
+        mainService.getUserInfo({
+          temp: Math.random()
+        }, (res) => {
           if (res.data.success) {
             this.username = res.data.data.username;
           }
@@ -72,4 +73,5 @@
     margin-left: 0 !important;
     float: left;
   }
+
 </style>

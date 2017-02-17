@@ -20,7 +20,7 @@
             <el-input type="password" v-model="ruleForm.password" min-length="6" placeholder="密码"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')" class="loginbt">登陆</el-button>
+            <el-button type="primary" @click="submitForm('ruleForm')" class="loginbt">登录</el-button>
           </el-form-item>
         </el-form>
       </el-col>

@@ -30,7 +30,7 @@ module.exports = {
     proxyTable: {
       // 设置代理
       '/webapi': {
-        target: 'http://121.201.69.155:9000',
+        target: 'http://gongzheng.infutian.org:9000',
         secure: false,
         changeOrigin: true
       }
