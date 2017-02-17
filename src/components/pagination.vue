@@ -1,40 +1,66 @@
 <template>
-    <div id="pagination" width="100%">
-        <el-button-group>
-            <el-button type="primary" icon="arrow-left">上一页</el-button>
-            <el-button type="default">...</el-button>
-            <el-button type="default">1</el-button>
-            <el-button type="default">2</el-button>
-            <el-button type="default">3</el-button>
-            <el-button type="default">4</el-button>
-            <el-button type="default">5</el-button>
-            <el-button type="default">...</el-button>
-            <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
-        </el-button-group>
+    <div id="pagination">
+        <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="currentPage4"
+            :page-sizes="[10, 20, 30, 40]"
+            :page-size="10"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="400">
+        </el-pagination>
     </div>
 </template>
 
 <script>
     export default {
-        name:"pagination",
-        data(){
+        name: "pagination",
+        data() {
             return {
 
             }
+        },methods: {
+            handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
+            },
+            handleCurrentChange(val) {
+                this.currentPage = val;
+                console.log(`当前页: ${val}`);
+            }
+            },
+            data() {
+            return {
+                currentPage1: 5,
+                currentPage2: 5,
+                currentPage3: 5,
+                currentPage4: 4
+            };
         }
     }
+
 </script>
 
 <style scoped>
-     .el-button--primary{
-        background-color:#387457;
-        border-color:#387457;
+    .el-button--primary {
+        background-color: #387457;
+        border-color: #387457;
     }
-    .el-button:focus, .el-button:hover{
-        color:#387457;
-        border-color:#387457;
+    
+    .el-button--default:focus,
+    .el-button--default:hover {
+        color: #387457;
+        border-color: #387457;
     }
-    #pagination{
+    
+    #pagination {
+        width: 95%;
+        min-height: 411px;
         text-align: center;
+        margin:0 auto;
+    }
+
+    .el-pager li.active{
+        border-color: #387457;
+        background-color: #387457;
     }
 </style>

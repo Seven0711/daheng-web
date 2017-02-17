@@ -37,7 +37,7 @@
             <el-table-column label="操作">
                 <template scope="scope">
                     <el-button type="primary" icon="view" size="mini" @click="showEvidencia(id)" style='background-color:#387457;border-color:#387457;'>查看</el-button>
-                    <el-button type="warning" icon="delete" size="mini" @click="delEvidencia(id)">删除</el-button>
+                    <!--<el-button type="warning" icon="delete" size="mini" @click="delEvidencia(id)">删除</el-button>-->
                 </template>
             </el-table-column>
         </el-table>
@@ -51,13 +51,13 @@
             </span>
         </el-dialog>
         <!--删除弹出框-->
-        <el-dialog title="提示" v-model="delbox" size="tiny">
+        <!--<el-dialog title="提示" v-model="delbox" size="tiny">
             <span>确定删除该证据吗？</span>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="delbox = false">取 消</el-button>
                 <el-button type="primary" @click="isDel(id)">确 认</el-button>
             </span>
-        </el-dialog>
+        </el-dialog>-->
 
     </div>
 </template>
