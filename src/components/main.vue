@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <pageHead></pageHead>
+  <div id="main">
+    <pageHead :username="username"></pageHead>
     <el-menu theme="default" :default-active="defaultActive" class="el-menu-demo" mode="horizontal" :router="true" @select="handleSelect">
       <el-menu-item index="evidencia">证据管理</el-menu-item>
       <el-menu-item index="web2">我的工作台</el-menu-item>
@@ -14,16 +14,31 @@
 <script>
   import pageHead from 'components/pagehead'
   import pagefooter from 'components/pagefooter'
+  import MainService from 'services/MainService';
+  const mainService = new MainService();
   export default {
     name: 'main',
     data() {
       return {
-        defaultActive:this.$router.currentRoute.name
+        defaultActive:this.$router.currentRoute.name,
+        username:''
       }
+    },
+    mounted(){
+      this.$nextTick(()=>{
+        this.getUserInfo();
+      });
     },
     methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
+      },
+      getUserInfo(){
+        mainService.getUserInfo({temp:Math.random()},(res)=>{
+          if(res.data.success){
+            this.username = res.data.data.username;
+          }
+        });
       }
     },
     components:{
