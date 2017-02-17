@@ -38,14 +38,14 @@
     <el-table :data="evidengcia" stripe border class='evidengciaTable'>
       <el-table-column label="序号" type="index" width="70"></el-table-column>
       <el-table-column label="证据编号" prop="evidenceId"></el-table-column>
-      <el-table-column label="固证主题" prop="title"></el-table-column>
+      <!--<el-table-column label="固证主题" prop="title"></el-table-column>-->
       <el-table-column label="文件名" prop="fileName"></el-table-column>
       <el-table-column label="文件大小" prop="fileSize">
         <template scope="scope">
           <span>{{scope.row.fileSize | file-size}}</span>
         </template>
       </el-table-column>
-      <el-table-column label="备注" prop="remark"></el-table-column>
+      <!--<el-table-column label="备注" prop="remark"></el-table-column>-->
       <el-table-column label="上传时间">
         <template scope="scope">
           <span>{{ scope.row.evidenceCreated | my-date}}</span>
@@ -132,12 +132,12 @@
         });
       },
       handleSizeChange(val) {
-        this.getEvidencia(val, 10);
-        this.page = val;
+        this.getEvidencia(this.page, val);
+        this.pageSize = val;
       },
       handleCurrentChange(val) {
-        this.getEvidencia(this.page, val);
-        this.currentPage = val;
+        this.getEvidencia(val, this.pageSize);
+        this.page = val;
       },
       delEvidencia() {
         this.delbox = true;
