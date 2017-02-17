@@ -32,6 +32,23 @@ Vue.filter('file-size', function (size) {
     return '';
   }
 });
+Vue.filter('reinforceStatus', function (status) {
+  if (status) {
+      if (status === 1) {
+        return '录制中';
+      } else if (status === 2) {
+        return '打包中';
+      } else if (status === 3) {
+        return '签名中';
+      } else if (status === 4) {
+        return '上传证据中';
+      } else if (status === 5) {
+        return '上传证据完成';
+      }
+    } else {
+      return '';
+    }
+});
 
 /* eslint-disable no-new */
 Vue.use(ElementUI);

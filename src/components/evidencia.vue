@@ -58,7 +58,7 @@
       </el-table-column>
       <el-table-column label="操作">
         <template scope="scope">
-          <el-button type="primary" icon="view" size="mini" @click="showEvidencia(id)" style='background-color:#387457;border-color:#387457;'>查看</el-button>
+          <el-button type="primary" icon="view" size="mini" @click="showEvidencia(scope.row)" style='background-color:#387457;border-color:#387457;'>查看</el-button>
           <!--<el-button type="warning" icon="delete" size="mini" @click="delEvidencia(id)">删除</el-button>-->
         </template>
       </el-table-column>
@@ -66,12 +66,92 @@
     <div id="pagination">
       <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage" :page-sizes="[10, 20, 30, 40]"
         :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper" :total="total">
-      </el-pagination>
+        </el-pagination>
     </div>
     <!--<pagination :currentPage="currentPage" :total="total" :pageSize="pageSize" @size-change="changerPage"></pagination>-->
     <!--查看详情弹出窗-->
-    <el-dialog title="提示" v-model="dialogVisible" size="tiny">
-      <span>title</span>
+    <el-dialog title="证据详情" v-model="dialogVisible" size="tiny" class="model-title">
+      <div :label-position="labelPosition">
+        <div class="model-header">
+          <h4 class="form-section" style="margin:10px 0; font-size: 24px; font-weight:normal;">
+            <img src="../assets/ico-certificate.png"  style="padding-top:5px;"/>&nbsp;&nbsp;代码签名证书
+          </h4>
+          <p>
+            <span class="label">签名者姓名:</span>
+            <span class="item">深圳市福田区高新技术创业中心</span>
+          </p>
+          <p>
+            <span class="label">摘要算法:</span>
+            <span class="item">sha256</span>
+          </p>
+          <p>
+            <span class="label">签名时间戳:</span>
+            <span class="item">{{evidData.evidenceCreated | my-date}}</span>
+          </p>
+        </div>
+        <div class="model-content">
+          <p>
+            <span class="label">证据编号:</span>
+            <span class="item">{{evidData.evidenceId}}</span>
+          </p>
+          <!--<p>
+            <span class="label">标题:</span>
+            <span class="item">{{evidData.title}}</span>
+          </p>-->
+          <!--<p>
+            <span>证据类型:</span>
+            <span>{{evidData.showViewdata.fileType | fileTypeFilter}}</span>
+          </p>-->
+          <!--<p>
+            <span>证据来源:</span>
+            <span>{{evidData.clientType|clientTypeFilter}}</span>
+          </p>-->
+          <p>
+            <span class="label" style="width:100px;">文件大小:</span>
+            <span class="item">{{evidData.fileSize | file-size}}</span>
+          </p>
+          <p>
+            <span class="label">存证时间:</span>
+            <span class="item">{{evidData.created | my-date}}</span>
+          </p>
+          <!--<p>
+            <span class="label">固证人:</span>
+            <span class="item">{{evidData.userName}}</span>
+          </p>-->
+          <p>
+            <span class="label">状态:</span>
+            <span class="item">{{evidData.statusCode | reinforceStatus}}</span>
+          </p>
+          <!--<p>
+            <span class="label">备注:</span>
+            <span class="item">{{evidData.remark}}</span>
+          </p>-->
+          <!--<p>
+            <span>经纬度:</span>
+            <span>{{gps}}</span>
+          </p>-->
+          <!--<p>
+            <span>位置:</span>
+            <a target="_blank" ui-sref="map({location:eviLocation})">{{$location}}&nbsp;&nbsp;<img src="images/map_locate_24px.png"/></a>
+          </p>-->
+          <!--<p>
+            <span class="label">源文件名:</span>
+            <span>{{evidData.sourceName}}</span>
+          </p>-->
+          <p>
+            <span class="label">源文件Hash:</span>
+            <span class="item">{{evidData.sourceMd5}}</span>
+          </p>
+          <!--<p>
+            <span class="label">文件名称:</span>
+            <span>{{evidData.fileName}}</span>
+          </p>-->
+          <p>
+            <span class="label">文件Hash:</span>
+            <span class="item">{{evidData.targetMd5}}</span>
+          </p>
+        </div>
+      </div>
       <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">关 闭</el-button>
             </span>
@@ -93,6 +173,7 @@
     name: 'evidengcia',
     data() {
       return {
+        labelPosition: 'right',
         dialogVisible: false, //查看弹出窗口
         delbox: false, //删除弹出窗口
         currentPage: 1, //当前页
@@ -104,7 +185,8 @@
         keyword: '',
         fromDate: '',
         toDate: '',
-        evidengcia: []
+        evidengcia: [],
+        evidData: {}
       }
     },
     mounted() {
@@ -142,8 +224,10 @@
       delEvidencia() {
         this.delbox = true;
       },
-      showEvidencia() {
+      showEvidencia(data) {
+        this.evidData = data;
         this.dialogVisible = true;
+        console.log(this.evidData);
       },
       isDel(id) {
 
@@ -167,9 +251,6 @@
           return '';
         }
       }
-    },
-    components: {
-      pagination: require('components/pagination')
     }
   }
 
@@ -221,5 +302,46 @@
   .el-date-editor.el-input {
     width: 167px;
   }
+  
+  .el-dialog__header {
+    background-color: #387457;
+    padding-bottom: 10px;
+  }
+  .el-dialog__body{
+    padding-top:0;
+  }
+  
+.model-header{
+  background-color:rgba(37,195,119,0.3);
+  padding-left:4px;
+  padding-bottom:5px;
+  border-left:4px solid #25c377;
+}
 
+  .model-header>img {
+    display: inline-block;
+  }
+  
+  .el-dialog__title {
+    color: #fff;
+  }
+  
+  .model-content>p>span {
+    word-wrap: break-word;
+    word-break: keep-all;
+  }
+  
+  .label {
+    font-weight: bold;
+    display: inline-block;
+    width: 18%;
+    text-align: right;
+    vertical-align: top;
+  }
+  
+  .item {
+    width:80%;
+    display: inline-block;
+    text-align: left;
+  }
 </style>
