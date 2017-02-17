@@ -28,28 +28,28 @@
   }
 
 </script>
-<style scoped>
-  .el-button--primary {
-    background-color: #387457;
-    border-color: #387457;
-  }
-  
-  .el-button--default:focus,
-  .el-button--default:hover {
-    color: #387457;
-    border-color: #387457;
-  }
-  
-  #pagination {
-    width: 95%;
-    min-height: 411px;
-    text-align: center;
-    margin: 0 auto;
-  }
-  
-  .el-pager li.active {
-    border-color: #387457;
-    background-color: #387457;
-  }
+<style>
+    .el-button--primary {
+        background-color: #387457;
+        border-color: #387457;
+    }
+    
+    .el-button--default:focus,
+    .el-button--default:hover {
+        color: #387457;
+        border-color: #387457;
+    }
+    
+    #pagination {
+        width: 95%;
+        min-height: 411px;
+        text-align: center;
+        margin:0 auto;
+    }
 
+    .el-pager>li.active{
+        border-color: #387457;
+        background-color: #387457;
+    }
 </style>
+

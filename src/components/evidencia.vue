@@ -1,30 +1,41 @@
 <template>
-  <div>
+  <div id="evidengcia">
+    <!--证据管理表格-->
+    <!--条件搜索表单-->
+    <!--<el-form :inline="true" :model="searchForm" class="searchForm">
+            <el-form-item style="float: right; margin-left:15px; margin-top:15px;">
+                <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <el-button type="primary">查询</el-button>
+            </el-form-item>
+            <el-form-item label="时间" style='float: right; margin-top:15px; width:800px;'>
+                <el-col :span="5">
+                    <el-form-item prop="">
+                        <el-date-picker type="date" placeholder="选择日期" v-model="searchForm.beginT"></el-date-picker>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="1">至</el-col>
+                <el-col :span="5">
+                    <el-form-item prop="">
+                        <el-date-picker type="date" placeholder="选择日期" v-model="searchForm.endT"></el-date-picker>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="5">
+                    <el-form-item prop="">
+                        <el-select v-model="searchForm.keyWord" placeholder="全部">
+                            <el-option label="执法事件编号" value="num"></el-option>
+                            <el-option label="执法主题" value="title"></el-option>
+                        </el-select>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="5">
+                    <el-form-item prop="">
+                        <el-input v-model="searchForm.keyWord"></el-input>
+                    </el-form-item>
+                </el-col>
+            </el-form-item>
+        </el-form>-->
     <!--证据管理表格-->
     <el-table :data="evidengcia" stripe border class='evidengciaTable'>
-      <!--<el-table-column type="expand">
-                    <template scope="props">
-
-                        <p>省: {{ props.row.province }}</p>
-                        <p>市: {{ props.row.city }}</p>
-                        <p>住址: {{ props.row.detailAddress }}</p>
-                        <p>邮编: {{ props.row.zip }}</p>
-
-                        <el-table :data=" evidengcia ">
-                            <el-table-column label="证据编号" prop='props.row.province'></el-table-column>
-                            <el-table-column label="证据标题" prop='props.row.city'></el-table-column>
-                            <el-table-column label="文件大小" prop='props.row.province'></el-table-column>
-                            <el-table-column label="固证人" prop='props.row.province'></el-table-column>
-                            <el-table-column label="存证时间" prop='props.row.province'></el-table-column>
-                            <el-table-column label="证据类型" prop='props.row.province'></el-table-column>
-                            <el-table-column label="证据来源" prop='props.row.province'></el-table-column>
-                            <el-table-column label="状态" prop='props.row.province'></el-table-column>
-                            <el-table-column label="备注" prop='props.row.province'></el-table-column>
-                            <el-table-column label="操作" prop='props.row.province'></el-table-column>
-                        </el-table>
-                        
-                    </template>
-                </el-table-column>-->
       <el-table-column label="序号" prop="id"></el-table-column>
       <el-table-column label="执法事件编号" prop="executorId"></el-table-column>
       <el-table-column label="执法主题" prop="enforceName"></el-table-column>
@@ -240,6 +251,16 @@
   .el-pager li.active {
     border-color: #387457;
     background-color: #387457;
+  }
+  
+  .searchForm {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .el-date-editor.el-input {
+    width: 167px;
   }
 
 </style>

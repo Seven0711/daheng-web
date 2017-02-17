@@ -97,7 +97,7 @@
   }
 
 </script>
-<style scoped>
+<style>
   .loginbt {
     width: 100%;
     background-color: rgba(56, 116, 87, 1);
@@ -143,7 +143,11 @@
   
   .el-input {
     border-radius: 0px !important;
-    padding-top: 10px;
+  }
+
+  .el-input__inner{
+    border-radius:0;
+    height:40px;
   }
   
   .img-response {
@@ -153,6 +157,12 @@
     margin: 0 auto;
   }
   
+.el-button--primary:focus, .el-button--primary:hover{
+      background: #25c377;
+    border-color: #25c377;
+    color: #fff;
+}
+
   footer {
     width: 100%;
     text-align: center;
