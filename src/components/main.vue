@@ -29,9 +29,7 @@
       });
     },
     methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      },
+      handleSelect(key, keyPath) {},
       getUserInfo() {
         mainService.getUserInfo({
           temp: Math.random()
