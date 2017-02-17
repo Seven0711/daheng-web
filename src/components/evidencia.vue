@@ -1,5 +1,38 @@
 <template>
     <div>
+        <!--条件搜索表单-->
+        <!--<el-form :inline="true" :model="searchForm" class="searchForm">
+            <el-form-item style="float: right; margin-left:15px; margin-top:15px;">
+                <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <el-button type="primary">查询</el-button>
+            </el-form-item>
+            <el-form-item label="时间" style='float: right; margin-top:15px; width:800px;'>
+                <el-col :span="5">
+                    <el-form-item prop="">
+                        <el-date-picker type="date" placeholder="选择日期" v-model="searchForm.beginT"></el-date-picker>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="1">至</el-col>
+                <el-col :span="5">
+                    <el-form-item prop="">
+                        <el-date-picker type="date" placeholder="选择日期" v-model="searchForm.endT"></el-date-picker>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="5">
+                    <el-form-item prop="">
+                        <el-select v-model="searchForm.keyWord" placeholder="全部">
+                            <el-option label="执法事件编号" value="num"></el-option>
+                            <el-option label="执法主题" value="title"></el-option>
+                        </el-select>
+                    </el-form-item>
+                </el-col>
+                <el-col :span="5">
+                    <el-form-item prop="">
+                        <el-input v-model="searchForm.keyWord"></el-input>
+                    </el-form-item>
+                </el-col>
+            </el-form-item>
+        </el-form>-->
         <!--证据管理表格-->
         <el-table :data="evidengcia" stripe border class='evidengciaTable'>
             <!--<el-table-column type="expand">
@@ -69,6 +102,12 @@
             return {
                 dialogVisible: false,//查看弹出窗口
                 delbox: false,//删除弹出窗口
+                searchForm: {
+                    beginT: '',
+                    endT: '',
+                    keyWord: '',
+                    type: ''
+                },
                 evidengcia: [{
                     date: '2016-05-03',
                     name: '王小虎',
@@ -155,5 +194,15 @@
     table,
     th>div {
         text-align: center;
+    }
+    
+    .searchForm {
+        width: 95%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .el-date-editor.el-input{
+        width:167px;
     }
 </style>

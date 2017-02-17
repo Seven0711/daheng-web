@@ -12,7 +12,7 @@
           <el-dropdown-menu slot="dropdown">
             <!--<el-dropdown-item>个人中心</el-dropdown-item>
                         <el-dropdown-item>修改密码</el-dropdown-item>-->
-            <el-dropdown-item command="loginout">退出登陆</el-dropdown-item>
+            <el-dropdown-item command="loginout">退出登陆<i class="el-icon-setting" style="margin-left: 10px;"></i></el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-col>
@@ -59,4 +59,11 @@
     cursor: pointer;
   }
 
+</style>
+
+<style scoped>
+  .el-dropdown-menu__item{
+    font-size:12px;
+    line-height:20px;
+  }
 </style>

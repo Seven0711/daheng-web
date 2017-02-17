@@ -40,7 +40,7 @@
 
 </script>
 
-<style scoped>
+<style>
     .el-button--primary {
         background-color: #387457;
         border-color: #387457;
@@ -59,7 +59,7 @@
         margin:0 auto;
     }
 
-    .el-pager li.active{
+    .el-pager>li.active{
         border-color: #387457;
         background-color: #387457;
     }
