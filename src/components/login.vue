@@ -12,7 +12,7 @@
       </el-col>
       <el-col :xs="24" :sm="24" :md="8" :lg="8" class='loginbox'>
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" v-model="labelPosition" class="loginform" v-on:keyup.enter="submitForm('ruleForm')">
-          <h1>账号登陆</h1>
+          <h1>账号登录</h1>
           <el-form-item prop="username">
             <el-input v-model="ruleForm.username" placeholder="用户名"></el-input>
           </el-form-item>
