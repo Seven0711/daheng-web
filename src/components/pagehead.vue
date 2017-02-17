@@ -2,7 +2,7 @@
   <div id="pagehead">
     <el-row class="logo">
       <el-col :span="18">
-        <img src="../assets/logo-default.png" alt="" style="height:66px;">
+        <img src="../assets/logo-default.png" alt="" style="height:65px;">
       </el-col>
       <el-col :span="2">
         <el-dropdown @command="logout">

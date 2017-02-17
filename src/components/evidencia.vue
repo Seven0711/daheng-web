@@ -107,7 +107,7 @@
             <span>{{evidData.clientType|clientTypeFilter}}</span>
           </p>-->
           <p>
-            <span class="label" style="width:100px;">文件大小:</span>
+            <span class="label">文件大小:</span>
             <span class="item">{{evidData.fileSize | file-size}}</span>
           </p>
           <p>
@@ -140,7 +140,7 @@
           </p>-->
           <p>
             <span class="label">源文件Hash:</span>
-            <span class="item">{{evidData.sourceMd5}}</span>
+            <span class="item" style="width:280px;">{{evidData.sourceMd5}}</span>
           </p>
           <!--<p>
             <span class="label">文件名称:</span>
@@ -148,7 +148,7 @@
           </p>-->
           <p>
             <span class="label">文件Hash:</span>
-            <span class="item">{{evidData.targetMd5}}</span>
+            <span class="item" style="width:280px;">{{evidData.targetMd5}}</span>
           </p>
         </div>
       </div>
@@ -333,9 +333,10 @@
   .label {
     font-weight: bold;
     display: inline-block;
-    width: 18%;
-    text-align: right;
+    width: 83px;
+    text-align: left;
     vertical-align: top;
+    margin-left:15px;
   }
   
   .item {
@@ -343,4 +344,8 @@
     display: inline-block;
     text-align: left;
   }
+
+  /*.el-dialog--tiny{
+    width:490px;
+  }*/
 </style>
