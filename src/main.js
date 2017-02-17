@@ -17,7 +17,18 @@ Vue.filter('my-date', function (time) {
       minutes = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes(),
       seconds = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
     return year + '-' + month + '-' + day + '  ' + hour + ':' + minutes + ':' + seconds;
-  }else {
+  } else {
+    return '';
+  }
+});
+Vue.filter('file-size', function (size) {
+  if (size) {
+    if (size > 1024 * 1024) {
+      return (size * 100 / (1024 * 1024) / 100).toFixed(2) + 'MB';
+    } else {
+      return ((size * 100 / 1024) / 100).toFixed(2) + 'KB';
+    }
+  } else {
     return '';
   }
 });
@@ -28,5 +39,6 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App}
+  components: {
+  App}
 });

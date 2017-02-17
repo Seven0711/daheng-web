@@ -36,29 +36,29 @@
         </el-form>-->
         <!--证据管理表格-->
         <el-table :data="evidengcia" stripe border class='evidengciaTable'>
-            <el-table-column label="序号" prop="id"></el-table-column>
-            <el-table-column label="执法事件编号" prop="executorId"></el-table-column>
-            <el-table-column label="执法主题" prop="enforceName"></el-table-column>
-            <el-table-column label="证据数量" prop="totalEvidences"></el-table-column>
-            <el-table-column label="发起人" prop="executorName"></el-table-column>
-            <el-table-column label="开始时间">
+            <el-table-column label="序号" type="index" width="70"></el-table-column>
+            <el-table-column label="证据编号" prop="evidenceId"></el-table-column>
+            <el-table-column label="固证主题" prop="title"></el-table-column>
+            <el-table-column label="文件名" prop="fileName"></el-table-column>
+            <el-table-column label="文件大小" prop="fileSize">
                 <template scope="scope">
-                    <span>{{ scope.row.startTime | my-date}}</span>
+                    <span>{{scope.row.fileSize | file-size}}</span>
                 </template>
             </el-table-column>
-            <el-table-column label="结束时间">
+            <el-table-column label="备注" prop="remark"></el-table-column>
+            <el-table-column label="上传时间">
                 <template scope="scope">
-                    <span>{{ scope.row.endTime | my-date}}</span>
+                    <span>{{ scope.row.evidenceCreated | my-date}}</span>
                 </template>
             </el-table-column>
-            <el-table-column label="执法状态">
+            <el-table-column label="状态">
                 <template scope="scope">
                     <span>{{ scope.row.statusCode|stateCode}}</span>
                 </template>
             </el-table-column>
             <el-table-column label="操作">
                 <template scope="scope">
-                    <el-button type="primary" icon="view" size="mini" @click="showEvidencia(scope.row)" style='background-color:#387457;border-color:#387457;'>查看</el-button>
+                    <el-button type="primary" icon="view" size="mini" @click="showEvidencia(id)" style='background-color:#387457;border-color:#387457;'>查看</el-button>
                     <!--<el-button type="warning" icon="delete" size="mini" @click="delEvidencia(id)">删除</el-button>-->
                 </template>
             </el-table-column>
@@ -70,10 +70,8 @@
         </div>
         <!--<pagination :currentPage="currentPage" :total="total" :pageSize="pageSize" @size-change="changerPage"></pagination>-->
         <!--查看详情弹出窗-->
-        <el-dialog title="证据详情" v-model="dialogVisible" size="tiny">
-            <div :label-position="labelPosition" label-width="80px" :model="evidengcia">
-                <el-form-item label='名称'></el-form-item>
-            </div>
+        <el-dialog title="提示" v-model="dialogVisible" size="tiny">
+            <span>title</span>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">关 闭</el-button>
             </span>
@@ -95,7 +93,6 @@
         name: 'evidengcia',
         data() {
             return {
-                labelPosition: 'right',//
                 dialogVisible: false, //查看弹出窗口
                 delbox: false, //删除弹出窗口
                 currentPage: 1, //当前页
@@ -107,63 +104,7 @@
                 keyword: '',
                 fromDate: '',
                 toDate: '',
-                evidengcia: [{
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    detailAddress: '金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    detailAddress: '金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    detailAddress: '金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    detailAddress: '金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-08',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    detailAddress: '金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-06',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    detailAddress: '金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-07',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    detailAddress: '金沙江路 1518 弄',
-                    zip: 200333
-                }]
+                evidengcia: []
             }
         },
         mounted() {
@@ -172,15 +113,15 @@
             });
         },
         methods: {
-            getEvidencia() {
+            getEvidencia(page, pageSize) {
                 let param = {};
                 param.type = this.type;
                 param.keyword = this.keyword;
                 param.fromDate = this.fromDate;
                 param.toDate = this.toDate;
                 let pager = {};
-                pager.page = this.page;
-                pager.pageSize = this.pageSize;
+                pager.page = page || 1;
+                pager.pageSize = pageSize || 10;
                 pager.sort = this.sort;
                 mainService.getActions(pager, param, (res) => {
                     if (res.data.success) {
@@ -191,39 +132,50 @@
                 });
             },
             handleSizeChange(val) {
-                console.log(`每页 ${val} 条`);
+                this.getEvidencia(val, 10);
+                this.page = val;
             },
             handleCurrentChange(val) {
+                this.getEvidencia(this.page, val);
                 this.currentPage = val;
-                console.log(`当前页: ${val}`);
             },
             delEvidencia() {
                 this.delbox = true;
             },
-            showEvidencia(data) {
+            showEvidencia() {
                 this.dialogVisible = true;
-                console.log(data);
             },
             isDel(id) {
-                alert(id);
+
             }
         },
         filters: {
-            stateCode(value) {
-                if (value == 1) {
-                    return '正在执法';
-                } else if (value == 2) {
-                    return '执法结束';
+            stateCode(status) {
+                if (status) {
+                    if (status === 1) {
+                        return '录制中';
+                    } else if (status === 2) {
+                        return '打包中';
+                    } else if (status === 3) {
+                        return '签名中';
+                    } else if (status === 4) {
+                        return '上传证据中';
+                    } else if (status === 5) {
+                        return '上传证据完成';
+                    }
+                } else {
+                    return '';
                 }
             }
-        },
-        components: {
-            pagination: require('components/pagination')
         }
     }
 
 </script>
 <style>
+    #evidengcia {
+        min-height: 754px;
+    }
+    
     .evidengciaTable {
         width: 95%;
         margin: 20px auto;
