@@ -78,7 +78,7 @@
           </h4>
           <p>
             <span class="label">签名者姓名:</span>
-            <span class="item">深圳市福田区高新技术创业中心</span>
+            <span class="item">深圳市大恒数据安全科技有限责任公司</span>
           </p>
           <p>
             <span class="label">摘要算法:</span>
@@ -257,7 +257,7 @@
 </script>
 <style>
   #evidengcia {
-    min-height: 754px;
+    min-height: 747px;
   }
   
   .evidengciaTable {
@@ -283,9 +283,8 @@
   
   #pagination {
     width: 95%;
-    min-height: 411px;
     text-align: center;
-    margin: 0 auto;
+    margin: 5px auto;
   }
   
   .el-pager li.active {

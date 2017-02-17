@@ -26,7 +26,7 @@
       </el-col>
     </div>
     <footer>
-      <p>2017&copy深圳市大恒数据有限科技公司</p>
+      <p>2017&copy深圳市大恒数据安全科技有限责任公司</p>
     </footer>
     <!--系统提示-->
     <el-dialog title="系统提示" v-model="dialogVisible" size="tiny" top="35%" :close-on-click-modal="false" :close-on-press-escape="false"
