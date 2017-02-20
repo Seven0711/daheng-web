@@ -40,7 +40,7 @@
       <el-table-column label="证据编号" prop="evidenceId"></el-table-column>
       <!--<el-table-column label="固证主题" prop="title"></el-table-column>-->
       <el-table-column label="文件名" prop="fileName"></el-table-column>
-      <el-table-column label="文件大小" prop="fileSize">
+      <el-table-column label="文件大小">
         <template scope="scope">
           <span>{{scope.row.fileSize | file-size}}</span>
         </template>
@@ -63,7 +63,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <div id="pagination">
+    <div id="pagination" v-if="!!evidengcia">
       <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage" :page-sizes="[10, 20, 30, 40]"
         :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper" :total="total">
         </el-pagination>
@@ -227,7 +227,6 @@
       showEvidencia(data) {
         this.evidData = data;
         this.dialogVisible = true;
-        console.log(this.evidData);
       },
       isDel(id) {
 
