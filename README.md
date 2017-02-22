@@ -5,13 +5,13 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
+# install dependencies(下载依赖)
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8080(启动项目)
 npm run dev
 
-# build for production with minification
+# build for production with minification(发布)
 npm run build
 
 # build for production and view the bundle analyzer report
