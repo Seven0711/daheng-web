@@ -1,12 +1,17 @@
 <template>
     <div>
-        <p>2017&copy深圳市大恒数据安全科技有限责任公司</p>
+        <p>{{pagefooter}}</p>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'pagefooter'
+        name: 'pagefooter',
+        data(){
+            return {
+                pagefooter:"2017&copy深圳市大恒数据安全科技有限责任公司"
+            }
+        }
     }
 
 </script>

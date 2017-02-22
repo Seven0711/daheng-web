@@ -345,7 +345,7 @@
     text-align: left;
   }
 
-  /*.el-dialog--tiny{
-    width:490px;
-  }*/
+  .el-dialog--tiny{
+    min-width:560px;
+  }
 </style>

@@ -5,8 +5,8 @@
         <img src="../assets/logo-default.png" alt="" style="height:65px;">
       </el-col>
       <el-col :span="2">
-        <el-dropdown @command="logout">
-          <span class="el-dropdown-link" style='line-height:50px;'>{{username}}
+        <el-dropdown @command="logout" style="padding-top:15px;min-width:90px;">
+          <span class="el-dropdown-link">{{username}}
                         <i class="el-icon-caret-bottom el-icon--right"></i>
                     </span>
           <el-dropdown-menu slot="dropdown">
