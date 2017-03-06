@@ -74,7 +74,7 @@
       <div :label-position="labelPosition">
         <div class="model-header">
           <h4 class="form-section" style="margin:10px 0; font-size: 24px; font-weight:normal;">
-            <img src="../assets/ico-certificate.png"  style="padding-top:5px;"/>&nbsp;&nbsp;代码签名证书
+            <img src="../assets/ico-certificate.png"  style="padding-top:5px;"/>证书详情
           </h4>
           <p>
             <span class="label">签名者姓名:</span>
