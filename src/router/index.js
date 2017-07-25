@@ -29,16 +29,6 @@ export default new Router({
           path: '/evidencia',
           name: 'evidencia',
           component: require('components/evidencia')
-        },
-        {
-          path: '/web2',
-          name: 'web2',
-          component: require('components/web2')
-        },
-        {
-          path: '/web3',
-          name: 'web3',
-          component: require('components/web3')
         }
       ]
     }
