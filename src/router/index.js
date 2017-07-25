@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: login
+      redirect: login,
     },
     // {
     //   path: '*',
@@ -18,7 +18,7 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: login
+      component: login,
     },
     {
       path: '/main',

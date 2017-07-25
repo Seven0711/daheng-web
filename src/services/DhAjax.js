@@ -1,15 +1,15 @@
 import axios from 'axios';
 import Vue from 'vue';
 import Router from 'vue-router';
+const router = new Router();
 Vue.use(Router);
+
 // 集中处理所有请求返回结果
 export default class DhAjax {
   dhGet (url, param, callback) {
     axios.get(url, {params: param}).then(res => {
       if (res.data.statusCode === 1005) {
-        // console.log(Router)
-        // Router.push('login')
-        window.location = '/login';
+        router.push('login');
       }else {
         callback(res);
       }
@@ -20,8 +20,7 @@ export default class DhAjax {
   dhPost (url, param, callback) {
     axios.post(url, param).then(res => {
       if (res.data.statusCode === 1005) {
-        // Router.push('login');
-        window.location = '/login';
+        router.push('login');
       }else {
         callback(res);
       }
@@ -32,8 +31,7 @@ export default class DhAjax {
   dhDelete (url, param, callback) {
     axios.delete(url, param).then(res => {
       if (res.data.statusCode === 1005) {
-        // Router.push('login');
-        window.location = '/login';
+        router.push('login');
       }else {
         callback(res);
       }
@@ -44,8 +42,7 @@ export default class DhAjax {
   dhPatch (url, param, callback) {
     axios.patch(url, param).then(res => {
       if (res.data.statusCode === 1005) {
-        // Router.push('login');
-        window.location = '/login';
+        router.push('login');
       }else {
         callback(res);
       }
